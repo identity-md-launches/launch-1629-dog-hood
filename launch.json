@@ -1,0 +1,24 @@
+{
+  "kind": "custom_token",
+  "token": {
+    "contract": "DogHoodToken",
+    "name": "Dog hood",
+    "symbol": "DOG",
+    "decimals": 18,
+    "constructorArgs": [],
+    "totalSupply": "1000000000000000000000000000"
+  },
+  "contracts": [],
+  "pool": {
+    "pairedCurrency": "0x5f7bb59365ce557c26dbcaa4ee9d39a4b95b7127",
+    "fee": 12500,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "economics": {
+    "poolBps": 8800,
+    "initialMarketCapWei": "2500000000000000000000",
+    "remainderTo": "0x12a7aad083cef06fef7c295514b52fc8bc81960d"
+  },
+  "notes": "DogHoodToken (src/DogHoodToken.sol) is a fixed-supply ERC-20 built on the unmodified OpenZeppelin v5.1.0 ERC20. name() returns \"Dog hood\", symbol() returns \"DOG\" and decimals() returns 18. Its constructor takes no arguments and mints the whole supply of 1,000,000,000 DOG (1000000000000000000000000000 minor units) once to msg.sender, which in the launch is the factory; constructorArgs is therefore empty. There is no owner, minter, mint function, burn function, pause, blocklist, freeze, fee, tax or reflection: transfers, approvals and transferFrom are plain ERC-20, so every launch flow (the swarm share to the distributor, the pool seed through the PoolManager and the remainder to economics.remainderTo) moves exactly what it says, and totalSupply() cannot grow or shrink after deployment. The runtime contains no DELEGATECALL, CALLCODE or SELFDESTRUCT and the contract refuses ether. No application contracts accompany the token. Pool and economics are the launch's own: the pool pairs with IMD at 0x5f7bb59365ce557c26dbcaa4ee9d39a4b95b7127 at the launch policy's 1.25% fee with tick spacing 60; initialPrice is provenance only, the deployer derives the opening price from economics.initialMarketCapWei (2,500 IMD for the whole supply) and totalSupply. 88% of the supply seeds the pool and the remainder of the requester's share goes to 0x12a7aad083cef06fef7c295514b52fc8bc81960d."
+}
